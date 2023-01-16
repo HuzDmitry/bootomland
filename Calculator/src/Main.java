@@ -15,7 +15,7 @@ public class Main
         System.out.println ("= "+output);
 
     }
-    public static String calc (String input)throws Exception
+    public static String calc (String input)throws Exception //Можно было и с помощью регулярных выражений. Но пока не изученная тема
     {
         int charPosition=znaki (input);
         String output="";
@@ -40,7 +40,7 @@ public class Main
         }
         return output;
     }
-    private static int znaki (String input) throws Exception
+    private static int znaki (String input) throws Exception // определение знака вычисления
     {
         int znak =1;
 
@@ -65,7 +65,7 @@ public class Main
         }
         return znak;
     }
-    private static boolean arabiza (String input)
+    private static boolean arabiza (String input)// определение принадлежности к СИ
     {
         boolean temp=false;
         for (String d: ARAB)
@@ -78,7 +78,7 @@ public class Main
         }
         return temp;
     }
-    private static String compute (String in1, String in2, char sign)
+    private static String compute (String in1, String in2, char sign)//вычисление арабских числами
     {
         int i1 = Integer.parseInt (in1);
         int i2 = Integer.parseInt (in2);
@@ -102,7 +102,7 @@ public class Main
         return output=String.valueOf (result);
     }
 }
-class RimMath {
+class RimMath {   //класс для работы с римскими числами
     private String input1;
     private String input2;
     private char sign;
@@ -112,7 +112,7 @@ class RimMath {
         this.input2=input2;
         this.sign=sign;
     }
-    private int convertRimInt(String input) throws Exception
+    private int convertRimInt(String input) throws Exception //конверитрование Римских чисел в целые числа
     {
         int out=0;
         for (String temp: ARAB)
@@ -129,7 +129,7 @@ class RimMath {
         }
         return out;
     }
-    private String convertIntRim(int input){
+    private String convertIntRim(int input){ //конвертирование целых чисел в римские
         String out;
         if (input<11)
             out=ARAB[input-1];
@@ -140,7 +140,7 @@ class RimMath {
         }
         return out;
     }
-    public String mathRim () throws Exception {
+    public String mathRim () throws Exception { //вычисление значения
         int i1=convertRimInt (input1);
         int i2=convertRimInt (input2);
         String out;
