@@ -106,7 +106,7 @@ class RimMath {   //класс для работы с римскими числ�
     private String input1;
     private String input2;
     private char sign;
-    private final String[] ARAB={"I","II","III","IV","V","VI","VII","VIII","IX","X"};
+    private final String[] ARAB={"I","II","III","IV","V","VI","VII","VIII","IX","X","L","C"};
     RimMath(String input1, String input2, char sign){
         this.input1=input1;
         this.input2=input2;
@@ -130,13 +130,75 @@ class RimMath {   //класс для работы с римскими числ�
         return out;
     }
     private String convertIntRim(int input){ //конвертирование целых чисел в римские
-        String out;
-        if (input<11)
-            out=ARAB[input-1];
-        else
-        {
-            input=input-10;
-            out=ARAB[9]+ARAB[input-1];
+        String out=null;
+        int temp1=input / 10; //десятки
+        int temp2=input % 10; //остаток
+        switch (temp1){
+            case 0:
+                out=ARAB[temp2-1];
+                break;
+            case 1:
+                if (temp2 == 0)
+                    out = ARAB[9];
+                else
+                    out = ARAB[9] + ARAB[temp2 - 1];
+                break;
+            case 2:
+                if (temp2 == 0)
+                    out = ARAB[9]+ARAB[9];
+                else
+                    out = ARAB[9]+ARAB[9] + ARAB[temp2 - 1];
+                break;
+            case 3:
+                if (temp2 == 0)
+                    out = ARAB[9]+ARAB[9]+ARAB[9];
+                else
+                    out = ARAB[9]+ARAB[9] +ARAB[9]+ ARAB[temp2 - 1];
+                break;
+            case 4:
+                if (temp2 == 0)
+                    out = ARAB[9]+ARAB[10];
+                else
+                    out = ARAB[9]+ARAB[10] + ARAB[temp2 - 1];
+                break;
+            case 5:
+                if (temp2 == 0)
+                    out = ARAB[10];
+                else
+                    out = ARAB[10] + ARAB[temp2 - 1];
+                break;
+            case 6:
+                if (temp2 == 0)
+                    out = ARAB[10]+ARAB[9];
+                else
+                    out = ARAB[10]+ARAB[9] + ARAB[temp2 - 1];
+                break;
+            case 7:
+                if (temp2 == 0)
+                    out = ARAB[10]+ARAB[9];
+                else
+                    out = ARAB[10]+ARAB[9]+ARAB[9] + ARAB[temp2 - 1];
+                break;
+            case 8:
+                if (temp2 == 0)
+                    out = ARAB[10]+ARAB[9]+ARAB[9];
+                else
+                    out = ARAB[10]+ARAB[9]+ARAB[9] + ARAB[temp2 - 1];
+                break;
+            case 9:
+                if (temp2 == 0)
+                    out = ARAB[9]+ARAB[11];
+                else
+                    out = ARAB[9]+ARAB[11] + ARAB[temp2 - 1];
+                break;
+            case 10:
+                if (temp2 == 0)
+                    out = ARAB[11];
+                else
+                    out = ARAB[11] + ARAB[temp2 - 1];
+                break;
+            default:
+                out=">109";
         }
         return out;
     }
