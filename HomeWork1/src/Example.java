@@ -7,7 +7,6 @@ public class Example {
         int index=0;
         while (index<size){
             sum+=numbers[index];
-            System.out.println (sum);
             index++;
         }
         //avg=sum/size;
